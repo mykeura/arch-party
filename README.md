@@ -13,6 +13,31 @@ Arch Party is a customization tool for terminals on Arch Linux that allows you t
 
 ## Installation
 
+### From source
+
+1. Download the latest release:
+
+git clone https://github.com/mykeura/arch-party.git
+cd arch-party
+
+
+2. Extract the files:
+
+tar -xzf arch-party.tar.gz
+
+
+3. Enter the directory:
+
+cd arch-party
+
+
+4. Install using makepkg:
+
+makepkg -si
+
+
+### From AUR (coming soon)
+
 ```bash
 yay -S arch-party
 ```
