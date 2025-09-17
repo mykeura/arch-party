@@ -1,11 +1,13 @@
-# Maintainer: Miguel Euraque <arch@vidaextrema.org>
+# Maintainer: Miguel Euraque (mykeura)
+# URL: https://github.com/mykeura/arch-party
+# Description: Terminal color schemes and ASCII art customization for Arch Linux
 pkgname=arch-party
 pkgver=1.0
 pkgrel=1
 pkgdesc="Terminal color schemes and ASCII art customization for Arch Linux"
 arch=('any')
 url="https://github.com/mykeura/arch-party"
-license=('MIT')
+license=('GPLv3')
 depends=('bash')
 source=("$pkgname-$pkgver.tar.gz")
 sha256sums=('SKIP')
