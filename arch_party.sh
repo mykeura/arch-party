@@ -92,11 +92,11 @@ function center_text() {
 function animate_shapes() {
     term_height=$(tput lines)
     term_width=$(tput cols)
-    shapes=("*" "+" "#" "o")
+    shapes=("*" "+" "#" "o" "." "x" "@" "&" "%" "$" "!" "?" ";" ":" "-" "=" "~" "^" "<" ">" "|" "\\" "/" "{" "}")
     max_x=$((term_width - 2))
     max_y=$((term_height - 2))
 
-    for ((i = 0; i < 10; i++)); do
+    for ((i = 0; i < 15; i++)); do
         shape=${shapes[RANDOM % ${#shapes[@]}]}
         x=$((RANDOM % max_x))
         y=$((RANDOM % max_y))
