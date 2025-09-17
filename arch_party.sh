@@ -9,18 +9,12 @@
 # Author: Miguel Euraque
 # Date Created: 2025-01-19
 # Version: 1.0
-# License: MIT License
+# License: GPLv3 License
 #
 # Logo Attribution:
 #   Created by: Sivert3
 #   Published: 2014-11-16
 #   Source: https://bbs.archlinux.org/viewtopic.php?id=189937
-#
-# Copyright (c) 2025 Miguel Euraque
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction.
 #===============================================================================
 
 # Pastel and varied color tones
