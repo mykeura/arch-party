@@ -34,6 +34,8 @@ Just run in your terminal:
 arch-party
 ```
 
+To exit the party, simply press the `q` key.
+
 ## Contribute
 
 Contributions are welcome. Please open an issue first to discuss the changes you would like to make.
