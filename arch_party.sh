@@ -23,40 +23,40 @@
 # in the Software without restriction.
 #===============================================================================
 
-# Colores pastel y tonos variados
+# Pastel and varied color tones
 COLORS=(
-    "\e[38;5;153m" # Azul pastel
-    "\e[38;5;109m" # Verde pastel
-    "\e[38;5;110m" # Turquesa pastel
-    "\e[38;5;147m" # Lila pastel
-    "\e[38;5;225m" # Rosa pastel claro
-    "\e[38;5;186m" # Amarillo pastel
-    "\e[38;5;33m"  # Azul claro
-    "\e[38;5;34m"  # Verde menta
-    "\e[38;5;45m"  # Azul brillante
-    "\e[38;5;81m"  # Púrpura oscuro
-    "\e[38;5;137m" # Naranja suave
-    "\e[38;5;194m" # Rojo suave
-    "\e[38;5;198m" # Fucsia brillante
-    "\e[38;5;220m" # Amarillo brillante
-    "\e[38;5;214m" # Naranja brillante
-    "\e[38;5;119m" # Verde limón
-    "\e[38;5;88m"  # Verde oscuro
-    "\e[38;5;51m"  # Cyan suave
-    "\e[38;5;44m"  # Azul oceánico
-    "\e[38;5;229m" # Lila oscuro
-    "\e[38;5;166m" # Rojo intenso
-    "\e[38;5;136m" # Marrón suave
-    "\e[38;5;160m" # Rojo oscuro
-    "\e[38;5;40m"  # Verde oliva
-    "\e[38;5;159m" # Naranja oscuro
-    "\e[38;5;42m"  # Verde esmeralda
-    "\e[38;5;121m" # Púrpura pastel
-    "\e[38;5;35m"  # Azul medianoche
-    "\e[38;5;72m"  # Verde claro
+    "\e[38;5;153m" # Pastel blue
+    "\e[38;5;109m" # Pastel green
+    "\e[38;5;110m" # Pastel turquoise
+    "\e[38;5;147m" # Pastel lilac
+    "\e[38;5;225m" # Light pastel pink
+    "\e[38;5;186m" # Pastel yellow
+    "\e[38;5;33m"  # Light blue
+    "\e[38;5;34m"  # Mint green
+    "\e[38;5;45m"  # Bright blue
+    "\e[38;5;81m"  # Dark purple
+    "\e[38;5;137m" # Soft orange
+    "\e[38;5;194m" # Soft red
+    "\e[38;5;198m" # Bright fuchsia
+    "\e[38;5;220m" # Bright yellow
+    "\e[38;5;214m" # Bright orange
+    "\e[38;5;119m" # Lime green
+    "\e[38;5;88m"  # Dark green
+    "\e[38;5;51m"  # Soft cyan
+    "\e[38;5;44m"  # Ocean blue
+    "\e[38;5;229m" # Dark lilac
+    "\e[38;5;166m" # Intense red
+    "\e[38;5;136m" # Soft brown
+    "\e[38;5;160m" # Dark red
+    "\e[38;5;40m"  # Olive green
+    "\e[38;5;159m" # Dark orange
+    "\e[38;5;42m"  # Emerald green
+    "\e[38;5;121m" # Pastel purple
+    "\e[38;5;35m"  # Midnight blue
+    "\e[38;5;72m"  # Light green
 )
 
-# Logotipo fijo de Arch Linux
+# Fixed Arch Linux logo
 ARCH_LOGO="
           .
          / \\
@@ -68,7 +68,7 @@ ARCH_LOGO="
    /.^         ^.\\
 "
 
-# Función para centrar el texto en el terminal
+# Function to center text in the terminal
 function center_text() {
     text=$1
     term_height=$(tput lines)
@@ -76,11 +76,11 @@ function center_text() {
     lines_count=$(echo "$text" | wc -l)
     max_line_width=$(echo "$text" | awk '{print length}' | sort -nr | head -1)
 
-    # Calcular coordenadas para centrar
+    # Calculate coordinates to center
     y=$(( (term_height - lines_count) / 2 ))
     x=$(( (term_width - max_line_width) / 2 ))
 
-    # Imprimir cada línea con el desplazamiento adecuado
+    # Print each line with appropriate offset
     echo "$text" | while IFS= read -r line; do
         tput cup "$y" "$x"
         echo -e "$line"
@@ -88,7 +88,7 @@ function center_text() {
     done
 }
 
-# Función para generar formas animadas alrededor del logo
+# Function to generate animated shapes around the logo
 function animate_shapes() {
     term_height=$(tput lines)
     term_width=$(tput cols)
@@ -107,16 +107,30 @@ function animate_shapes() {
     done
 }
 
-# Bucle principal
+# Make the terminal non-blocking for input
+stty -echo -icanon time 0 min 0
+
+# Main loop
 while true; do
     clear
 
-    # Cambiar el color del logotipo
+    # Change logo color
     logo_color=${COLORS[RANDOM % ${#COLORS[@]}]}
     center_text "${logo_color}${ARCH_LOGO}\e[0m"
 
-    # Generar animaciones
+    # Generate animations
     animate_shapes
 
-    sleep 0.1
+    # Check for 'q' key press to quit
+    read -n 1 -t 0.1 key
+    if [[ $key == "q" ]]; then
+        clear
+        tput cnorm  # Show cursor
+        stty echo   # Restore terminal settings
+        break
+    fi
 done
+
+# Restore terminal settings on exit
+tput cnorm
+stty echo
