@@ -2,7 +2,7 @@
 
 Arch Party is a customization tool for terminals on Arch Linux that allows you to apply color schemes and ASCII art easily and fun.
 
-![Demo de Arch Party](assets/arch-party.gif)
+![Arch Party Demo](assets/arch-party.gif)
 
 ## Features
 
@@ -13,17 +13,15 @@ Arch Party is a customization tool for terminals on Arch Linux that allows you t
 
 ## Installation
 
-### From source
-
-1. Clone the repository:
 ```bash
+# Option 1: Automatic installation
+curl -s https://raw.githubusercontent.com/mykeura/arch-party/main/install.sh | bash
+
+# Option 2: Manual installation
 git clone https://github.com/mykeura/arch-party.git
 cd arch-party
-```
-
-2. Install using makepkg:
-```bash
-makepkg -si
+chmod +x arch_party.sh
+sudo mv arch_party.sh /usr/local/bin/arch-party
 ```
 
 ## Usage
