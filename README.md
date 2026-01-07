@@ -13,14 +13,21 @@ Arch Party is a customization tool for terminals on Arch Linux that allows you t
 
 ## Installation
 
-```bash
-# Option 1: Automatic installation
-curl -s https://raw.githubusercontent.com/mykeura/arch-party/main/install.sh | bash
+### Option 1: Automatic installation
 
-# Option 2: Manual installation
+```bash
+curl -s https://raw.githubusercontent.com/mykeura/arch-party/main/install.sh | bash
+```
+
+### Option 2: Manual installation
+
+```
 git clone https://github.com/mykeura/arch-party.git
+
 cd arch-party
+
 chmod +x arch_party.sh
+
 sudo mv arch_party.sh /usr/local/bin/arch-party
 ```
 
@@ -42,15 +49,3 @@ Contributions are welcome. Please open an issue first to discuss the changes you
 
 This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details.
 
-## Author
-
-**Miguel Euraque**
-
-_Teacher, Technical SEO and Web Developer._
-
-I transform ideas into robust and visible digital experiences. My work focuses on the intersection between technology and education, with the goal of democratizing knowledge and making the web a more inclusive space.
-
-I am passionate about creating open projects that promote collaboration, learning, and accessibility. I believe that code and the web are powerful tools for expanding horizons, connecting people, and building a more equitable digital future.
-
-- **Website:** [Vida Extrema](https://vidaextrema.org/)
-- **GitHub:** [mykeura](https://github.com/mykeura)

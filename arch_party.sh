@@ -8,7 +8,7 @@
 #
 # Author: Miguel Euraque
 # Date Created: 2025-01-19
-# Version: 1.0
+# Version: 1.0.1
 # License: GPLv3 License
 #
 # Logo Attribution:
